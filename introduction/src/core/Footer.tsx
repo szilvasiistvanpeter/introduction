@@ -2,6 +2,7 @@ import { Box, Container, Typography, IconButton, Stack } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
+import { contactLinks } from '../const';
 
 export default function ResponsiveFooter() {
   return (
@@ -10,8 +11,8 @@ export default function ResponsiveFooter() {
       sx={{
         bgcolor: '#0a1929',
         py: 4,
-        borderTop: '1px solid #1e4976', // Vékony vonal, ami elválasztja a tartalomtól
-        mt: 'auto', // Ha flex konténerben van, az aljára tapad
+        borderTop: '1px solid #1e4976',
+        mt: 'auto',
       }}
     >
       <Container maxWidth="lg">
@@ -31,7 +32,9 @@ export default function ResponsiveFooter() {
           {/* Social Ikonok */}
           <Stack direction="row" spacing={1}>
             <IconButton
-              href="https://github.com/TeadNev"
+              href={
+                contactLinks.find((link) => link.label === 'GitHub')?.href ?? ''
+              }
               target="_blank"
               sx={{
                 color: '#b0bec5',
@@ -41,7 +44,10 @@ export default function ResponsiveFooter() {
               <GitHubIcon />
             </IconButton>
             <IconButton
-              href="https://linkedin.com/in/TeadNev"
+              href={
+                contactLinks.find((link) => link.label === 'LinkedIn')?.href ??
+                ''
+              }
               target="_blank"
               sx={{
                 color: '#b0bec5',
@@ -51,7 +57,9 @@ export default function ResponsiveFooter() {
               <LinkedInIcon />
             </IconButton>
             <IconButton
-              href="mailto:email@cimed.hu"
+              href={
+                contactLinks.find((link) => link.label === 'Email')?.href ?? ''
+              }
               sx={{
                 color: '#b0bec5',
                 '&:hover': { color: 'var(--brand-blue2)' },
