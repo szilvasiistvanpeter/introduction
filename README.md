@@ -16,3 +16,39 @@ PNPM (Performant NPM) is a fast, disk-efficient package manager. It is chosen fo
 - It is compatible with npm and Yarn, making it easy to integrate into existing workflows.
 
 By combining React, TypeScript, and PNPM, this project leverages modern tools to deliver a high-quality CV site.
+
+## UI Framework: Material UI (MUI)
+To achieve a professional and consistent look, this project utilizes **Material UI**. It provides a robust set of ready-to-use components following Google's Material Design principles.
+
+### Key UI Features
+- **Responsive Layout:** Using MUI's Grid and Container systems for mobile-first design.
+- **Theming:** Custom color palette to avoid the "standard Google look" and match professional branding.
+- **Iconography:** Integrated Material Icons for visual cues in the skills and contact sections.
+
+## Installation
+
+After cloning the repository, install the dependencies using pnpm:
+
+```bash
+pnpm install @mui/material @emotion/react @emotion/styled @mui/icons-material @fontsource/roboto
+```
+
+## Getting Started
+
+1. **Setup Theme:** Wrap your application in the `ThemeProvider` to enable custom branding.
+2. **Import Fonts:** Add the Roboto fonts in your `main.tsx`:
+   ```typescript
+   import '@fontsource/roboto/300.css';
+   import '@fontsource/roboto/400.css';
+   import '@fontsource/roboto/500.css';
+   import '@fontsource/roboto/700.css';
+   ```
+3. **Run Development Server:**
+   ```bash
+   pnpm dev
+   ```
+
+## Project Structure
+- `src/components`: Reusable UI elements (Navbar, ProjectCards, etc.)
+- `src/theme`: Custom MUI theme configuration
+- `src/assets`: Images and professional documents (CV PDF)

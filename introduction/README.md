@@ -71,3 +71,16 @@ export default defineConfig([
   },
 ])
 ```
+
+## Installed Dependencies
+
+The following dependencies have been installed to enhance the project:
+
+- **@mui/material**: Material-UI components for building user interfaces.
+- **@emotion/react**: Library for writing CSS styles with JavaScript.
+- **@emotion/styled**: Styled components for creating reusable styled elements.
+- **@mui/icons-material**: Material-UI icons for use in the application.
+- **framer-motion**: Library for animations and gestures in React.
+- **@fontsource/roboto**: Roboto font for consistent typography.
+
+These dependencies enable the use of Material-UI components, animations, and custom styling in the project.
