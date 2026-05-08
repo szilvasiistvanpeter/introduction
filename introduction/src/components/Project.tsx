@@ -12,25 +12,19 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+import { techStack } from '../const';
+import { useEffect } from 'react';
 
 export default function Project() {
-  const brandBlue = '#42a5f5';
-
-  const techStack = [
-    { label: 'React 18', color: '#61dafb' },
-    { label: 'Material UI v6', color: '#007fff' },
-    { label: 'TypeScript', color: '#3178c6' },
-    { label: 'GitHub Actions', color: '#2088ff' },
-    { label: 'Prettier & ESLint', color: '#f7b93e' },
-    { label: 'MkDocs', color: '#009485' },
-  ];
+  useEffect(() => {
+    document.title = 'Projektről';
+  }, []);
 
   return (
     <Box
       sx={{
         p: { xs: 2, md: 4 },
         bgcolor: '#0a1929',
-        minHeight: '100vh',
         color: 'white',
       }}
     >
@@ -62,7 +56,7 @@ export default function Project() {
 
             <Typography
               variant="h4"
-              sx={{ fontWeight: 'bold', mb: 1, color: brandBlue }}
+              sx={{ fontWeight: 'bold', mb: 1, color: 'var(--brand-blue2)' }}
             >
               Portfolio Project
             </Typography>
@@ -78,8 +72,11 @@ export default function Project() {
                   variant="h6"
                   sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}
                 >
-                  <TerminalIcon fontSize="small" sx={{ color: brandBlue }} /> A
-                  fejlesztésről
+                  <TerminalIcon
+                    fontSize="small"
+                    sx={{ color: 'var(--brand-blue2)' }}
+                  />{' '}
+                  A fejlesztésről
                 </Typography>
                 <Typography
                   variant="body1"
@@ -101,7 +98,7 @@ export default function Project() {
                     href="https://github.com/szilvasiistvanpeter/introduction"
                     target="_blank"
                     sx={{
-                      bgcolor: brandBlue,
+                      bgcolor: 'var(--brand-blue2)',
                       '&:hover': { bgcolor: '#1976d2' },
                     }}
                   >
@@ -126,7 +123,7 @@ export default function Project() {
                 >
                   <IntegrationInstructionsIcon
                     fontSize="small"
-                    sx={{ color: brandBlue }}
+                    sx={{ color: 'var(--brand-blue2)' }}
                   />{' '}
                   Stack & Tools
                 </Typography>
@@ -134,11 +131,10 @@ export default function Project() {
                   {techStack.map((tech, index) => (
                     <Chip
                       key={index}
-                      label={tech.label}
+                      label={tech}
                       sx={{
                         bgcolor: 'rgba(255,255,255,0.05)',
                         color: 'white',
-                        border: `1px solid ${tech.color}44`,
                         fontSize: '0.75rem',
                       }}
                     />
@@ -156,7 +152,7 @@ export default function Project() {
                   <Typography
                     variant="caption"
                     sx={{
-                      color: brandBlue,
+                      color: 'var(--brand-blue2)',
                       fontWeight: 'bold',
                       display: 'block',
                       mb: 1,

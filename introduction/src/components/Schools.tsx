@@ -6,35 +6,13 @@ import {
   Divider,
   Paper,
 } from '@mui/material';
-import SchoolIcon from '@mui/icons-material/SchoolOutlined';
+import { education } from '../const';
+import { useEffect } from 'react';
 
 export default function Schools() {
-  const education = [
-    {
-      period: '2025 – 2026',
-      degree: 'Informatikatanár (Digitális kultúra tanára) MSc',
-      institution: 'Eszterházy Károly Katolikus Egyetem',
-      description:
-        'Mesterképzés, amely a pedagógiai módszertanra és a digitális kultúra oktatására fókuszál.',
-      icon: <SchoolIcon color="primary" />,
-    },
-    {
-      period: '2022 – 2024',
-      degree: 'Mérnökinformatikus MSc (Kiváló minősítés)',
-      institution: 'Miskolci Egyetem',
-      description:
-        'Adatbányászati algoritmusok és térinformatikai rendszerek (GIS) specializáció.',
-      icon: <SchoolIcon color="primary" />,
-    },
-    {
-      period: '2013 – 2016',
-      degree: 'Programtervező informatikus BSc',
-      institution: 'Eszterházy Károly Katolikus Egyetem',
-      description:
-        'Szoftverfejlesztési alapok, webalkalmazások készítése (.NET).',
-      icon: <SchoolIcon color="primary" />,
-    },
-  ];
+  useEffect(() => {
+    document.title = 'Sulik';
+  }, []);
 
   return (
     <Box sx={{ maxWidth: 'xl', p: 3, bgcolor: '#0a1929' }}>

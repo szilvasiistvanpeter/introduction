@@ -12,9 +12,12 @@ import PetsIcon from '@mui/icons-material/Pets';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { useEffect } from 'react';
 
 export default function About() {
-  const brandBlue = '#1976d2';
+  useEffect(() => {
+    document.title = 'Rólam';
+  }, []);
 
   return (
     <Box
@@ -22,7 +25,6 @@ export default function About() {
         flexGrow: 1,
         p: { xs: 2, md: 4 },
         bgcolor: '#0a1929',
-        minHeight: '100vh',
         color: 'white',
       }}
     >
@@ -46,13 +48,16 @@ export default function About() {
                   width: 150,
                   height: 150,
                   m: '0 auto 20px',
-                  border: `4px solid ${brandBlue}`,
+                  border: `4px solid 'var(--brand-blue)'`,
                 }}
               />
               <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
                 Szilvási Péter
               </Typography>
-              <Typography variant="body1" sx={{ color: brandBlue, mb: 2 }}>
+              <Typography
+                variant="body1"
+                sx={{ color: 'var(--brand-blue)', mb: 2 }}
+              >
                 Senior Full-Stack Developer
               </Typography>
 
@@ -64,7 +69,7 @@ export default function About() {
                 <Chip
                   icon={<LocationOnIcon sx={{ color: 'white !important' }} />}
                   label="Eger"
-                  sx={{ bgcolor: brandBlue, color: 'white' }}
+                  sx={{ bgcolor: 'var(--brand-blue)', color: 'white' }}
                 />
                 <Chip
                   icon={<FavoriteIcon sx={{ color: '#ff1744 !important' }} />}
@@ -93,7 +98,7 @@ export default function About() {
             >
               <Typography
                 variant="h4"
-                sx={{ mb: 3, fontWeight: 'bold', color: brandBlue }}
+                sx={{ mb: 3, fontWeight: 'bold', color: 'var(--brand-blue)' }}
               >
                 Rólam röviden
               </Typography>
@@ -120,7 +125,7 @@ export default function About() {
                       mb: 2,
                     }}
                   >
-                    <PetsIcon sx={{ color: brandBlue }} />
+                    <PetsIcon sx={{ color: 'var(--brand-blue)' }} />
                     <Typography variant="body2">
                       Nagy kutyabarát és cicakedvelő
                     </Typography>
@@ -135,7 +140,7 @@ export default function About() {
                       mb: 2,
                     }}
                   >
-                    <SportsEsportsIcon sx={{ color: brandBlue }} />
+                    <SportsEsportsIcon sx={{ color: 'var(--brand-blue)' }} />
                     <Typography variant="body2">
                       Gamer: PlayStation & PC
                     </Typography>

@@ -8,6 +8,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Schools from './components/Schools';
 import Contacts from './components/Contacts';
 import Project from './components/Project';
+import ResponsiveFooter from './core/Footer';
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/contact" element={<Contacts />} />
           <Route path="/project" element={<Project />} />
         </Routes>
+        <ResponsiveFooter />
       </Router>
     </ThemeProvider>
   );

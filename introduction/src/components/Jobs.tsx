@@ -8,81 +8,16 @@ import {
   Paper,
   Box,
 } from '@mui/material';
+import { jobs } from '../const';
+import { useEffect } from 'react';
 
 export default function Jobs() {
-  const brandBlue = '#42a5f5';
-
-  const rows = [
-    {
-      company: 'Eszterházy Károly Katolikus Egyetem',
-      role: 'External Lecturer',
-      period: '2026.02 – Jelenleg',
-      tech: 'Informatika oktatás',
-    },
-    {
-      company: 'Siemens',
-      role: 'Senior Fullstack Developer',
-      period: '2025.11 – Jelenleg',
-      tech: 'React.js, Next.js, Hybrid Cloud (AWS)',
-    },
-    {
-      company: 'Deutsche Telekom IT Solutions HU',
-      role: 'Senior Fullstack Developer',
-      period: '2023.05 – 2025.11',
-      tech: 'C#, TypeScript, Angular, Oracle',
-    },
-    {
-      company: 'ALLWIN Informatika Kft.',
-      role: 'Full-Stack Software Engineer',
-      period: '2022.03 – 2023.05',
-      tech: 'ASP.NET Core, Angular, ArcGIS Maps SDK ',
-    },
-    {
-      company: 'Accenture',
-      role: 'Senior Software Engineer',
-      period: '2021.09 – 2022.03',
-      tech: 'Savigent Platform, MES/MOM, AngularJS ',
-    },
-    {
-      company: 'evosoft Hungary Kft.',
-      role: 'Software Engineer / Scrum Master',
-      period: '2018.08 – 2021.08',
-      tech: 'React, .NET Core, Azure DevOps, Scrum ',
-    },
-    {
-      company: 'ZF Hungária Kft.',
-      role: 'Production IT Support',
-      period: '2017.11 – 2018.08',
-      tech: 'Siemens PLC, Profibus, Profinet, Ghost ',
-    },
-    {
-      company: 'Procter & Gamble Hyginett Kft.',
-      role: 'IT Support',
-      period: '2017.09 – 2017.11',
-      tech: 'Szerver karbantartás, Avaya, ServiceNow',
-    },
-    {
-      company: 'Tamiasz Kft.',
-      role: 'IT Teacher',
-      period: '2017.05 – 2017.08',
-      tech: 'GINOP felnőttképzés, MS Office',
-    },
-    {
-      company: 'Wigner Jenő Szakoktatási Kft.',
-      role: 'IT Teacher / System Admin',
-      period: '2016.08 – 2017.08',
-      tech: 'C#, OOP, CISCO CCNA',
-    },
-    {
-      company: 'Robert Bosch Kft.',
-      role: 'Software Engineer Trainee',
-      period: '2015.06 – 2016.07',
-      tech: 'C#, TSQL, DevExpress, TFS',
-    },
-  ];
+  useEffect(() => {
+    document.title = 'Munkahelyek';
+  }, []);
 
   return (
-    <Box sx={{ p: { xs: 1, md: 4 }, bgcolor: '#0a1929', minHeight: '100vh' }}>
+    <Box sx={{ p: { xs: 1, md: 4 }, bgcolor: '#0a1929' }}>
       <TableContainer
         component={Paper}
         elevation={0}
@@ -90,7 +25,7 @@ export default function Jobs() {
           borderRadius: 3,
           bgcolor: '#132f4c',
           border: '1px solid #1e4976',
-          overflow: 'hidden',
+          overflowX: 'auto',
         }}
       >
         <Table sx={{ minWidth: 700 }} size="medium">
@@ -99,7 +34,7 @@ export default function Jobs() {
               <TableCell
                 sx={{
                   fontWeight: 'bold',
-                  color: brandBlue,
+                  color: 'white',
                   borderBottom: '1px solid #1e4976',
                 }}
               >
@@ -135,7 +70,7 @@ export default function Jobs() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row, index) => (
+            {jobs.map((job, index) => (
               <TableRow
                 key={index}
                 sx={{
@@ -145,12 +80,12 @@ export default function Jobs() {
               >
                 <TableCell
                   sx={{
-                    color: brandBlue,
+                    color: 'var(--brand-blue2)',
                     fontWeight: 'bold',
                     borderBottom: '1px solid rgba(30, 73, 118, 0.5)',
                   }}
                 >
-                  {row.company}
+                  {job.company}
                 </TableCell>
                 <TableCell
                   sx={{
@@ -158,7 +93,7 @@ export default function Jobs() {
                     borderBottom: '1px solid rgba(30, 73, 118, 0.5)',
                   }}
                 >
-                  {row.role}
+                  {job.role}
                 </TableCell>
                 <TableCell
                   sx={{
@@ -167,7 +102,7 @@ export default function Jobs() {
                     borderBottom: '1px solid rgba(30, 73, 118, 0.5)',
                   }}
                 >
-                  {row.period}
+                  {job.period}
                 </TableCell>
                 <TableCell
                   sx={{
@@ -176,7 +111,7 @@ export default function Jobs() {
                     borderBottom: '1px solid rgba(30, 73, 118, 0.5)',
                   }}
                 >
-                  {row.tech}
+                  {job.tech}
                 </TableCell>
               </TableRow>
             ))}

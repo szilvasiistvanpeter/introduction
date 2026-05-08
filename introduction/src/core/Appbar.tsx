@@ -15,7 +15,6 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import TerminalIcon from '@mui/icons-material/Terminal';
 
-// 1. Típus definíció a menüpontokhoz
 interface Page {
   name: string;
   path: string;
@@ -30,7 +29,6 @@ const pages: Page[] = [
 ];
 
 export default function ResponsiveAppBar() {
-  // 2. A useState generikus típusának megadása
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -108,12 +106,12 @@ export default function ResponsiveAppBar() {
                 >
                   <Typography
                     sx={{
-                      mr: 2,
-                      display: { xs: 'none', md: 'flex' },
                       fontFamily: 'monospace',
                       fontWeight: 700,
                       color: 'inherit',
                       textDecoration: 'none',
+                      textAlign: 'center',
+                      width: '100%',
                     }}
                   >
                     {page.name}
