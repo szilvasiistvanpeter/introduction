@@ -19,7 +19,7 @@ import { useTranslation } from 'react-i18next';
 export default function Project() {
   const { t } = useTranslation();
   useEffect(() => {
-    document.title = t('project.title');
+    document.title = t('nav.project');
   }, []);
 
   return (

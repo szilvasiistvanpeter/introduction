@@ -19,7 +19,7 @@ export default function About() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    document.title = 'Rólam';
+    document.title = t('nav.about');
   }, []);
 
   return (

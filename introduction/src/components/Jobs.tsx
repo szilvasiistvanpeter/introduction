@@ -16,7 +16,7 @@ export default function Jobs() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    document.title = 'Munkahelyek';
+    document.title = t('nav.jobs');
   }, []);
 
   return (

@@ -16,7 +16,7 @@ export default function Contacts() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    document.title = 'Kapcsolat';
+    document.title = t('nav.contact');
   }, []);
 
   return (

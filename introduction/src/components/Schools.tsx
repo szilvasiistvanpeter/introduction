@@ -14,7 +14,7 @@ export default function Schools() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    document.title = 'Sulik';
+    document.title = t('nav.schools');
   }, []);
 
   return (
