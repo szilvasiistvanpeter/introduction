@@ -5,13 +5,14 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
+    # TÖRLÉS: defaults: run: working-directory: introduction (Ezt kivettük!)
 
     steps:
       - name: Checkout
@@ -29,7 +30,8 @@ jobs:
         with:
           node-version: 20
           cache: "pnpm"
-          cache-dependency-path: introduction/pnpm-lock.yaml
+          # A gyökérben keressük a lock fájlt
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install
@@ -40,27 +42,25 @@ jobs:
       - name: Build React App
         run: pnpm build
 
-      # SPA Fix: A GitHub Pages-nek kell a 404.html, hogy a /about-on ne legyen hiba
       - name: Create 404 page for SPA
         run: cp dist/index.html dist/404.html
 
-      # MkDocs Build
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
-      - name: Install MkDocs and Material theme
+      - name: Install MkDocs
         run: pip install mkdocs-material
 
       - name: Build Documentation
-        # A site-dir-t a React dist mappájába irányítjuk
-        run: mkdocs build -f mkdocs.yml --site-dir dist/docs
+        # Most már látni fogja az mkdocs.yml-t a gyökérben
+        run: mkdocs build --site-dir dist/docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: introduction/dist
+          path: dist
 
   deploy:
     needs: test-and-build
