@@ -42,7 +42,13 @@
   "contacts": {
     "title": "Get in Touch!",
     "subtitle": "Whether it's about a professional project, education, or just a cup of coffee in Eger.",
-    "description": "I was born in Eger and currently live there. I work as a Senior Developer from here."
+    "description": "I was born in Eger and currently live there. I work as a Senior Developer from here.",
+    "labels": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email",
+      "phone": "Phone"
+    }
   },
   "project": {
     "title": "Personal Portfolio and Professional Introduction Page",

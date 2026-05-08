@@ -11,6 +11,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { contactLinks } from '../const';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import Eger from '../core/Eger';
 
 export default function Contacts() {
   const { t } = useTranslation();
@@ -77,7 +78,7 @@ export default function Contacts() {
                       },
                     }}
                   >
-                    {link.label}
+                    {t(link.label)}
                   </Button>
                 ))}
               </Stack>
@@ -103,9 +104,10 @@ export default function Contacts() {
               <LocationOnIcon
                 sx={{ fontSize: 60, color: 'var(--brand-blue)', mb: 2 }}
               />
-              <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 1 }}>
-                Eger
-              </Typography>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85547.77173627031!2d20.309009872487277!3d47.929267553668865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47408d7894b04023%3A0x63adb259948d1c24!2sEger!5e0!3m2!1shu!2shu!4v1778261406423!5m2!1shu!2shu"
+                loading="lazy"
+              ></iframe>
               <Typography variant="body2" sx={{ color: '#b0bec5' }}>
                 {t('contacts.description')}
               </Typography>

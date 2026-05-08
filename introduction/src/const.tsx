@@ -6,25 +6,25 @@ import SchoolIcon from '@mui/icons-material/SchoolOutlined';
 
 export const contactLinks = [
   {
-    label: 'Email',
+    label: 'contacts.labels.email',
     href: 'mailto:szilvasipeter@protonmail.com',
     value: 'szilvasipeter@protonmail.com',
     icon: <EmailIcon />,
   },
   {
-    label: 'LinkedIn',
+    label: 'contacts.labels.linkedin',
     href: 'https://www.linkedin.com/in/szilva/',
     value: 'linkedin.com/in/szilva',
     icon: <LinkedInIcon />,
   },
   {
-    label: 'GitHub',
+    label: 'contacts.labels.github',
     href: 'https://github.com/szilvasiistvanpeter',
     value: 'github.com/szilvasiistvanpeter',
     icon: <GitHubIcon />,
   },
   {
-    label: 'Telefon',
+    label: 'contacts.labels.phone',
     href: 'tel:+36307986829',
     value: '+36 30 798 6829',
     icon: <PhoneIcon />,
