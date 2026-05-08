@@ -37,7 +37,7 @@ export default function Schools() {
   ];
 
   return (
-    <Box sx={{ maxWidth: 800, m: 'auto', p: 3 }}>
+    <Box sx={{ maxWidth: 'xl', p: 3, bgcolor: '#0a1929' }}>
       {education.map((item, index) => (
         <Box key={index} sx={{ display: 'flex', mb: 3 }}>
           <Box

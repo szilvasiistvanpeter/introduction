@@ -1,49 +1,151 @@
-export default function About() {
-  return (
-    <div style={{ padding: '2rem', lineHeight: '1.6' }}>
-      <section style={{ textAlign: 'justify', marginBottom: '2rem' }}>
-        <h2 style={{ color: '#1976d2' }}>Rólam röviden</h2>
-        <p>
-          Több mint 8 éves tapasztalattal rendelkező, egri születésű és jelenleg
-          is ott élő Senior Full-Stack szoftverfejlesztő vagyok. Pályafutásom
-          során széleskörű szakértelmet szereztem komplex webes alkalmazások,
-          portálok és irányítópultok fejlesztésében , olyan technológiák
-          alkalmazásával, mint a .NET (ASP.NET Core), az Angular, a React és a
-          szoftveres tervezési minták (C#, TypeScript). Munkám során nemzetközi
-          környezetben, neves multinacionális vállalatoknál (például a Deutsche
-          Telekom, az Accenture és a Bosch) bizonyítottam. A technikai
-          fejlesztés mellett Certified Scrum Master végzettséggel is
-          rendelkezem, így otthonosan mozgok az agilis módszertanokban és a
-          csapatok mentorálásában is. Célom, hogy innovatív megoldásokkal
-          támogassam a digitális transzformációt, legyen szó ipari
-          automatizálásról (MES/MOM) vagy modern webes keretrendszerekről. A
-          szakmai kihívások mellett fontos számomra az egyensúly: boldog
-          párkapcsolatban élek, szabadidőmben pedig szívesen foglalkozom az
-          állatokkal, mivel nagy kutyabarát és cicakedvelő vagyok. Szeretek
-          játszani PlayStation-ön és számítógépen is.
-        </p>
-      </section>
+import {
+  Box,
+  Typography,
+  Grid,
+  Paper,
+  Avatar,
+  Chip,
+  Stack,
+  Container,
+} from '@mui/material';
+import PetsIcon from '@mui/icons-material/Pets';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-      <section style={{ textAlign: 'justify', marginBottom: '2rem' }}>
-        <h2 style={{ color: '#1976d2' }}>Főbb képességeim</h2>
-        <ul>
-          <li>
-            <strong>Backend:</strong> C#, .NET Core, Entity Framework, SQL
-            Server, PL/SQL.
-          </li>
-          <li>
-            <strong>Frontend:</strong> Angular, React, JavaScript/TypeScript,
-            CSS/SASS/HTML5.
-          </li>
-          <li>
-            <strong>Módszertan</strong> Scrum, Kanban, Waterfall, ITIL
-          </li>
-          <li>
-            <strong>Cloud, Devops</strong>: Azure, AWS, Docker, Kubernetes,
-            Terraform, Azure DevOps, GitHub Actions
-          </li>
-        </ul>
-      </section>
-    </div>
+export default function About() {
+  const brandBlue = '#1976d2';
+
+  return (
+    <Box
+      sx={{
+        flexGrow: 1,
+        p: { xs: 2, md: 4 },
+        bgcolor: '#0a1929',
+        minHeight: '100vh',
+        color: 'white',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Grid container spacing={3}>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                textAlign: 'center',
+                bgcolor: '#132f4c',
+                color: 'white',
+                borderRadius: 4,
+                border: '1px solid #1e4976',
+              }}
+            >
+              <Avatar
+                src="/introduction/me.jpg"
+                sx={{
+                  width: 150,
+                  height: 150,
+                  m: '0 auto 20px',
+                  border: `4px solid ${brandBlue}`,
+                }}
+              />
+              <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+                Szilvási Péter
+              </Typography>
+              <Typography variant="body1" sx={{ color: brandBlue, mb: 2 }}>
+                Senior Full-Stack Developer
+              </Typography>
+
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{ mb: 2, justifyContent: 'center' }}
+              >
+                <Chip
+                  icon={<LocationOnIcon sx={{ color: 'white !important' }} />}
+                  label="Eger"
+                  sx={{ bgcolor: brandBlue, color: 'white' }}
+                />
+                <Chip
+                  icon={<FavoriteIcon sx={{ color: '#ff1744 !important' }} />}
+                  label="Boldog párkapcsolat"
+                  sx={{
+                    bgcolor: 'rgba(255,23,68,0.1)',
+                    color: 'white',
+                    border: '1px solid #ff1744',
+                  }}
+                />
+              </Stack>
+            </Paper>
+          </Grid>
+
+          <Grid size={{ xs: 12, md: 8 }}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 4,
+                bgcolor: '#132f4c',
+                color: 'white',
+                borderRadius: 4,
+                border: '1px solid #1e4976',
+                height: '100%',
+              }}
+            >
+              <Typography
+                variant="h4"
+                sx={{ mb: 3, fontWeight: 'bold', color: brandBlue }}
+              >
+                Rólam röviden
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ lineHeight: 1.8, textAlign: 'justify', mb: 3 }}
+              >
+                Több mint 8 éves tapasztalattal rendelkező, **egri születésű**
+                és jelenleg is ott élő fejlesztő vagyok. Pályafutásom során
+                olyan nagyvállalatoknál bizonyítottam, mint a{' '}
+                <strong>Siemens</strong>, a <strong>Deutsche Telekom</strong> és
+                az <strong>Accenture</strong>. Célom az innovatív megoldások
+                szállítása, legyen szó ipari automatizálásról vagy modern
+                felhőalapú rendszerekről.
+              </Typography>
+
+              <Grid container spacing={2}>
+                <Grid size={{ xs: 12, sm: 6 }}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 2,
+                      mb: 2,
+                    }}
+                  >
+                    <PetsIcon sx={{ color: brandBlue }} />
+                    <Typography variant="body2">
+                      Nagy kutyabarát és cicakedvelő
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6 }}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 2,
+                      mb: 2,
+                    }}
+                  >
+                    <SportsEsportsIcon sx={{ color: brandBlue }} />
+                    <Typography variant="body2">
+                      Gamer: PlayStation & PC
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 }

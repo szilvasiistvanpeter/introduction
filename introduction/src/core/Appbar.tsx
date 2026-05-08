@@ -1,7 +1,5 @@
 import * as React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
-import PetsIcon from '@mui/icons-material/Pets';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import {
   AppBar,
   Box,
@@ -14,20 +12,29 @@ import {
   MenuItem,
   Button,
 } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
+import TerminalIcon from '@mui/icons-material/Terminal';
 
-const pages = [
+// 1. Típus definíció a menüpontokhoz
+interface Page {
+  name: string;
+  path: string;
+}
+
+const pages: Page[] = [
   { name: 'Rólam', path: '/introduction/about' },
   { name: 'Munkahelyek', path: '/introduction/jobs' },
   { name: 'Sulik', path: '/introduction/schools' },
   { name: 'Kapcsolat', path: '/introduction/contact' },
-  { name: 'Projeckről', path: '/introduction/project' },
+  { name: 'Projektről', path: '/introduction/project' },
 ];
 
 export default function ResponsiveAppBar() {
+  // 2. A useState generikus típusának megadása
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
+  const location = useLocation();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -38,21 +45,30 @@ export default function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="sticky"
+      sx={{ bgcolor: '#0a1929', borderBottom: '1px solid #1e4976' }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <TerminalIcon
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              mr: 1,
+              color: '#42a5f5',
+            }}
+          />
+
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={RouterLink}
+            to="/introduction/about"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -60,10 +76,11 @@ export default function ResponsiveAppBar() {
             Szilva
           </Typography>
 
+          {/* Mobil nézet */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -74,15 +91,9 @@ export default function ResponsiveAppBar() {
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
+              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
@@ -93,48 +104,62 @@ export default function ResponsiveAppBar() {
                   onClick={handleCloseNavMenu}
                   component={RouterLink}
                   to={page.path}
+                  selected={location.pathname === page.path}
                 >
-                  <Typography sx={{ textAlign: 'center' }}>
+                  <Typography
+                    sx={{
+                      mr: 2,
+                      display: { xs: 'none', md: 'flex' },
+                      fontFamily: 'monospace',
+                      fontWeight: 700,
+                      color: 'inherit',
+                      textDecoration: 'none',
+                    }}
+                  >
                     {page.name}
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <PetsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
+
+          {/* Desktop nézet */}
+          <Box
+            sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 1 }}
           >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page.name}
-                component={RouterLink}
-                to={page.path}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page.name}
-              </Button>
-            ))}
+            {pages.map((page) => {
+              const isActive = location.pathname === page.path;
+              return (
+                <Button
+                  key={page.name}
+                  component={RouterLink}
+                  to={page.path}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: isActive ? '#42a5f5' : 'white',
+                    display: 'block',
+                    textTransform: 'none',
+                    fontWeight: isActive ? 700 : 400,
+                    borderBottom: isActive
+                      ? '2px solid #42a5f5'
+                      : '2px solid transparent',
+                    borderRadius: 0,
+                    '&:hover': { bgcolor: 'rgba(66, 165, 245, 0.08)' },
+                  }}
+                >
+                  {page.name}
+                </Button>
+              );
+            })}
           </Box>
+
           <Box sx={{ flexGrow: 0 }}>
-            <Avatar alt="Szilva" src="introduction/me.jpg" />
+            <Avatar
+              alt="Szilva"
+              src="/introduction/me.jpg"
+              sx={{ border: '2px solid #1e4976' }}
+            />
           </Box>
         </Toolbar>
       </Container>

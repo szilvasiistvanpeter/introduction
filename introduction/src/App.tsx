@@ -7,6 +7,8 @@ import Jobs from './components/Jobs';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Schools from './components/Schools';
+import Contacts from './components/Contacts';
+import Project from './components/Project';
 const darkTheme = createTheme({
   palette: {
     mode: 'dark', // Vagy egy state-ből jövő érték: darkMode ? 'dark' : 'light'
@@ -24,6 +26,8 @@ export default function App() {
           <Route path="/introduction/about" element={<About />} />
           <Route path="/introduction/jobs" element={<Jobs />} />
           <Route path="/introduction/schools" element={<Schools />} />
+          <Route path="/introduction/contact" element={<Contacts />} />
+          <Route path="/introduction/project" element={<Project />} />
         </Routes>
       </Router>
     </ThemeProvider>
