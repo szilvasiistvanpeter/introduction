@@ -34,67 +34,67 @@ export const contactLinks = [
 export const jobs = [
   {
     company: 'Eszterházy Károly Katolikus Egyetem',
-    role: 'External Lecturer',
-    period: '2026.02 – Jelenleg',
-    tech: 'Informatika oktatás',
+    role: 'jobs.roles.lecturer',
+    period: 'jobs.periods.current_lecturer',
+    tech: 'MongoDb, Neo4j, Python, Node.js, Azure, Terraform',
   },
   {
     company: 'Siemens',
-    role: 'Senior Fullstack Developer',
-    period: '2025.11 – Jelenleg',
+    role: 'jobs.roles.senior_fullstack',
+    period: 'jobs.periods.current_siemens',
     tech: 'React.js, Next.js, Hybrid Cloud (AWS)',
   },
   {
     company: 'Deutsche Telekom IT Solutions HU',
-    role: 'Senior Fullstack Developer',
+    role: 'jobs.roles.senior_fullstack',
     period: '2023.05 – 2025.11',
     tech: 'C#, TypeScript, Angular, Oracle',
   },
   {
     company: 'ALLWIN Informatika Kft.',
-    role: 'Full-Stack Software Engineer',
+    role: 'jobs.roles.fullstack_eng',
     period: '2022.03 – 2023.05',
     tech: 'ASP.NET Core, Angular, ArcGIS Maps SDK ',
   },
   {
     company: 'Accenture',
-    role: 'Senior Software Engineer',
+    role: 'jobs.roles.senior_eng',
     period: '2021.09 – 2022.03',
     tech: 'Savigent Platform, MES/MOM, AngularJS ',
   },
   {
     company: 'evosoft Hungary Kft.',
-    role: 'Software Engineer / Scrum Master',
+    role: 'jobs.roles.software_eng_sm',
     period: '2018.08 – 2021.08',
     tech: 'React, .NET Core, Azure DevOps, Scrum ',
   },
   {
     company: 'ZF Hungária Kft.',
-    role: 'Production IT Support',
+    role: 'jobs.roles.prod_it',
     period: '2017.11 – 2018.08',
     tech: 'Siemens PLC, Profibus, Profinet, Ghost ',
   },
   {
     company: 'Procter & Gamble Hyginett Kft.',
-    role: 'IT Support',
+    role: 'jobs.roles.it_support',
     period: '2017.09 – 2017.11',
     tech: 'Szerver karbantartás, Avaya, ServiceNow',
   },
   {
     company: 'Tamiasz Kft.',
-    role: 'IT Teacher',
+    role: 'jobs.roles.it_teacher',
     period: '2017.05 – 2017.08',
     tech: 'GINOP felnőttképzés, MS Office',
   },
   {
     company: 'Wigner Jenő Szakoktatási Kft.',
-    role: 'IT Teacher / System Admin',
+    role: 'jobs.roles.it_teacher',
     period: '2016.08 – 2017.08',
     tech: 'C#, OOP, CISCO CCNA',
   },
   {
     company: 'Robert Bosch Kft.',
-    role: 'Software Engineer Trainee',
+    role: 'jobs.roles.trainee',
     period: '2015.06 – 2016.07',
     tech: 'C#, TSQL, DevExpress, TFS',
   },
@@ -103,28 +103,33 @@ export const jobs = [
 export const education = [
   {
     period: '2025 – 2026',
-    degree: 'Informatikatanár (Digitális kultúra tanára) MSc',
+    degree: 'education.degrees.msc_teacher',
     institution: 'Eszterházy Károly Katolikus Egyetem',
-    description:
-      'Mesterképzés, amely a pedagógiai módszertanra és a digitális kultúra oktatására fókuszál.',
+    description: 'education.descriptions.msc_teacher',
     icon: <SchoolIcon color="primary" />,
   },
   {
     period: '2022 – 2024',
-    degree: 'Mérnökinformatikus MSc (Kiváló minősítés)',
+    degree: 'education.degrees.msc_eng',
     institution: 'Miskolci Egyetem',
-    description:
-      'Adatbányászati algoritmusok és térinformatikai rendszerek (GIS) specializáció.',
+    description: 'education.descriptions.msc_eng',
     icon: <SchoolIcon color="primary" />,
   },
   {
     period: '2013 – 2016',
-    degree: 'Programtervező informatikus BSc',
+    degree: 'education.degrees.bsc_prog',
     institution: 'Eszterházy Károly Katolikus Egyetem',
-    description:
-      'Szoftverfejlesztési alapok, webalkalmazások készítése (.NET).',
+    description: 'education.descriptions.bsc_prog',
     icon: <SchoolIcon color="primary" />,
   },
+];
+
+export const pages = [
+  { name: 'nav.about', path: '/' },
+  { name: 'nav.jobs', path: '/jobs' },
+  { name: 'nav.schools', path: '/schools' },
+  { name: 'nav.contact', path: '/contact' },
+  { name: 'nav.project', path: '/project' },
 ];
 
 export const techStack = [

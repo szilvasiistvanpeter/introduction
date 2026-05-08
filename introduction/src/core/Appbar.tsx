@@ -14,21 +14,12 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import TerminalIcon from '@mui/icons-material/Terminal';
-
-interface Page {
-  name: string;
-  path: string;
-}
-
-const pages: Page[] = [
-  { name: 'Rólam', path: '/' },
-  { name: 'Munkahelyek', path: '/jobs' },
-  { name: 'Sulik', path: '/schools' },
-  { name: 'Kapcsolat', path: '/contact' },
-  { name: 'Projektről', path: '/project' },
-];
+import { useTranslation } from 'react-i18next';
+import { pages } from '../const';
 
 export default function ResponsiveAppBar() {
+  const { t, i18n } = useTranslation('translation', { useSuspense: false });
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -40,6 +31,11 @@ export default function ResponsiveAppBar() {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'hu' ? 'en' : 'hu';
+    i18n.changeLanguage(newLang);
   };
 
   return (
@@ -71,7 +67,7 @@ export default function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            Szilva
+            {t('welcome')}
           </Typography>
 
           {/* Mobil nézet */}
@@ -114,7 +110,7 @@ export default function ResponsiveAppBar() {
                       width: '100%',
                     }}
                   >
-                    {page.name}
+                    {t(page.name)}
                   </Typography>
                 </MenuItem>
               ))}
@@ -146,12 +142,15 @@ export default function ResponsiveAppBar() {
                     '&:hover': { bgcolor: 'rgba(66, 165, 245, 0.08)' },
                   }}
                 >
-                  {page.name}
+                  {t(page.name)}
                 </Button>
               );
             })}
           </Box>
 
+          <Button onClick={toggleLanguage} sx={{ color: 'white', ml: 2 }}>
+            {i18n.language === 'hu' ? 'EN' : 'HU'}
+          </Button>
           <Box sx={{ flexGrow: 0 }}>
             <Avatar
               alt="Szilva"

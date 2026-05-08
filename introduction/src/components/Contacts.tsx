@@ -10,8 +10,11 @@ import {
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { contactLinks } from '../const';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Contacts() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.title = 'Kapcsolat';
   }, []);
@@ -31,15 +34,14 @@ export default function Contacts() {
           align="center"
           sx={{ fontWeight: 'bold', mb: 2, color: 'var(--brand-blue)' }}
         >
-          Lépjünk kapcsolatba!
+          {t('contacts.title')}
         </Typography>
         <Typography
           variant="h6"
           align="center"
           sx={{ mb: 6, color: '#b0bec5', fontWeight: '400' }}
         >
-          Legyen szó szakmai projektről, oktatásról vagy csak egy kávéról
-          Egerben.
+          {t('contacts.subtitle')}
         </Typography>
 
         <Grid container spacing={4} sx={{ justifyContent: 'center' }}>
@@ -75,7 +77,7 @@ export default function Contacts() {
                       },
                     }}
                   >
-                    {link.value}
+                    {link.label}
                   </Button>
                 ))}
               </Stack>
@@ -105,7 +107,7 @@ export default function Contacts() {
                 Eger
               </Typography>
               <Typography variant="body2" sx={{ color: '#b0bec5' }}>
-                Itt születtem, itt élek, és innen dolgozom Senior fejlesztőként.
+                {t('contacts.description')}
               </Typography>
             </Paper>
           </Grid>

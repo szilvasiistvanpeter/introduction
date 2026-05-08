@@ -9,6 +9,7 @@ import Schools from './components/Schools';
 import Contacts from './components/Contacts';
 import Project from './components/Project';
 import ResponsiveFooter from './core/Footer';
+
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',

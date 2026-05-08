@@ -8,8 +8,11 @@ import {
 } from '@mui/material';
 import { education } from '../const';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Schools() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.title = 'Sulik';
   }, []);
@@ -66,17 +69,17 @@ export default function Schools() {
                 component="div"
                 sx={{ fontWeight: 'bold', my: 0.5 }}
               >
-                {item.degree}
+                {t(item.degree)}
               </Typography>
               <Typography
                 variant="subtitle1"
                 color="primary"
                 sx={{ fontWeight: 500, mb: 1 }}
               >
-                {item.institution}
+                {t(item.institution)}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {item.description}
+                {t(item.description)}
               </Typography>
             </CardContent>
           </Card>

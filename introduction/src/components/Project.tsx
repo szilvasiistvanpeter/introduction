@@ -14,10 +14,12 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
 import { techStack } from '../const';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Project() {
+  const { t } = useTranslation();
   useEffect(() => {
-    document.title = 'Projektről';
+    document.title = t('project.title');
   }, []);
 
   return (
@@ -61,7 +63,7 @@ export default function Project() {
               Portfolio Project
             </Typography>
             <Typography variant="subtitle1" sx={{ color: '#b0bec5', mb: 3 }}>
-              Személyes portfólió és szakmai bemutatkozó oldal
+              {t('project.title')}
             </Typography>
 
             <Divider sx={{ bgcolor: 'rgba(255,255,255,0.1)', mb: 3 }} />
@@ -76,19 +78,16 @@ export default function Project() {
                     fontSize="small"
                     sx={{ color: 'var(--brand-blue2)' }}
                   />{' '}
-                  A fejlesztésről
+                  {t('project.subtitle')}
                 </Typography>
                 <Typography
                   variant="body1"
                   sx={{ color: '#e0e0e0', textAlign: 'justify', mb: 2 }}
                 >
-                  Ez a projekt egy modern technológiai demó. Célom egy olyan
-                  reszponzív, típusbiztos alkalmazás létrehozása volt, amely
-                  követi a legfrissebb fejlesztési irányelveket.
+                  {t('project.description')}
                 </Typography>
                 <Typography variant="body2" sx={{ color: '#aaa', mb: 3 }}>
-                  Tartalmazza az automatizált CI/CD folyamatot (GitHub Actions),
-                  Prettier formázást és Git alapú verziókezelést.
+                  {t('project.subdescription')}
                 </Typography>
 
                 <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
@@ -164,10 +163,10 @@ export default function Project() {
                     variant="caption"
                     sx={{ color: '#888', display: 'block' }}
                   >
-                    • Prettier & Linting automatizálás
+                    • Prettier & Linting
                     <br />
-                    • GitHub Actions build ellenőrzés
-                    <br />• MkDocs dokumentáció kezelése
+                    • GitHub Actions build
+                    <br />• MkDocs
                   </Typography>
                 </Paper>
               </Grid>

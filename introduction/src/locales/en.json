@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "about": "About Me",
+    "jobs": "Experience",
+    "schools": "Education",
+    "contact": "Contact",
+    "project": "Project"
+  },
+  "welcome": "Plum",
+  "education": {
+    "degrees": {
+      "msc_teacher": "IT Teacher (Digital Culture) MSc",
+      "msc_eng": "Computer Science Engineering MSc (Honors)",
+      "bsc_prog": "Computer Science BSc"
+    },
+    "descriptions": {
+      "msc_teacher": "Master's program focusing on pedagogical methods and digital culture education.",
+      "msc_eng": "Specialization in data mining algorithms and geographic information systems (GIS).",
+      "bsc_prog": "Foundations of software development, creating web applications (.NET)."
+    }
+  },
+  "jobs": {
+    "roles": {
+      "lecturer": "External Lecturer",
+      "senior_fullstack": "Senior Fullstack Developer",
+      "fullstack_eng": "Full-Stack Software Engineer",
+      "senior_eng": "Senior Software Engineer",
+      "software_eng_sm": "Software Engineer / Scrum Master",
+      "it_support": "IT Support",
+      "it_teacher": "IT Teacher",
+      "prod_it": "Product IT Support",
+      "trainee": "Trainee Software Engineer"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "content": "I am a developer with over 8 years of experience. I was born in Egri and currently live there. Throughout my career, I have proven myself at large companies such as Siemens, Deutsche Telekom, and Accenture. My goal is to deliver innovative solutions, whether it's about industrial automation or modern cloud-based systems.",
+    "pet": "Dog lover and cat enthusiast.",
+    "gamer": "Gamer: PlayStation & PC",
+    "relationship": "Happy couple"
+  },
+  "contacts": {
+    "title": "Get in Touch!",
+    "subtitle": "Whether it's about a professional project, education, or just a cup of coffee in Eger.",
+    "description": "I was born in Eger and currently live there. I work as a Senior Developer from here."
+  },
+  "project": {
+    "title": "Personal Portfolio and Professional Introduction Page",
+    "subtitle": "About the Development",
+    "description": "This project is a modern technological demo. My goal was to create a responsive, type-safe application that follows the latest development practices.",
+    "subdescription": "It includes an automated CI/CD process (GitHub Actions), Prettier formatting, and Git-based version control."
+  },
+  "footer": {
+    "text": "© 2026 Szilva. All rights reserved."
+  }
+}

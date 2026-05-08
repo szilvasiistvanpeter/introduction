@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Table,
   TableBody,
@@ -12,6 +13,8 @@ import { jobs } from '../const';
 import { useEffect } from 'react';
 
 export default function Jobs() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.title = 'Munkahelyek';
   }, []);
@@ -93,7 +96,7 @@ export default function Jobs() {
                     borderBottom: '1px solid rgba(30, 73, 118, 0.5)',
                   }}
                 >
-                  {job.role}
+                  {t(job.role)}
                 </TableCell>
                 <TableCell
                   sx={{
@@ -102,7 +105,7 @@ export default function Jobs() {
                     borderBottom: '1px solid rgba(30, 73, 118, 0.5)',
                   }}
                 >
-                  {job.period}
+                  {t(job.period)}
                 </TableCell>
                 <TableCell
                   sx={{
@@ -111,7 +114,7 @@ export default function Jobs() {
                     borderBottom: '1px solid rgba(30, 73, 118, 0.5)',
                   }}
                 >
-                  {job.tech}
+                  {t(job.tech)}
                 </TableCell>
               </TableRow>
             ))}

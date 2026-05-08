@@ -13,8 +13,11 @@ import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function About() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.title = 'Rólam';
   }, []);
@@ -73,7 +76,7 @@ export default function About() {
                 />
                 <Chip
                   icon={<FavoriteIcon sx={{ color: '#ff1744 !important' }} />}
-                  label="Boldog párkapcsolat"
+                  label={t('about.relationship')}
                   sx={{
                     bgcolor: 'rgba(255,23,68,0.1)',
                     color: 'white',
@@ -100,19 +103,13 @@ export default function About() {
                 variant="h4"
                 sx={{ mb: 3, fontWeight: 'bold', color: 'var(--brand-blue)' }}
               >
-                Rólam röviden
+                {t('about.title')}
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ lineHeight: 1.8, textAlign: 'justify', mb: 3 }}
               >
-                Több mint 8 éves tapasztalattal rendelkező, **egri születésű**
-                és jelenleg is ott élő fejlesztő vagyok. Pályafutásom során
-                olyan nagyvállalatoknál bizonyítottam, mint a{' '}
-                <strong>Siemens</strong>, a <strong>Deutsche Telekom</strong> és
-                az <strong>Accenture</strong>. Célom az innovatív megoldások
-                szállítása, legyen szó ipari automatizálásról vagy modern
-                felhőalapú rendszerekről.
+                {t('about.content')}
               </Typography>
 
               <Grid container spacing={2}>
@@ -126,9 +123,7 @@ export default function About() {
                     }}
                   >
                     <PetsIcon sx={{ color: 'var(--brand-blue)' }} />
-                    <Typography variant="body2">
-                      Nagy kutyabarát és cicakedvelő
-                    </Typography>
+                    <Typography variant="body2">{t('about.pet')}</Typography>
                   </Box>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
@@ -141,9 +136,7 @@ export default function About() {
                     }}
                   >
                     <SportsEsportsIcon sx={{ color: 'var(--brand-blue)' }} />
-                    <Typography variant="body2">
-                      Gamer: PlayStation & PC
-                    </Typography>
+                    <Typography variant="body2">{t('about.gamer')}</Typography>
                   </Box>
                 </Grid>
               </Grid>
