@@ -22,12 +22,12 @@ export default function App() {
       <Router>
         <ResponsiveAppBar />
         <Routes>
-          <Route path="/introduction" element={<Home />} />
-          <Route path="/introduction/about" element={<About />} />
-          <Route path="/introduction/jobs" element={<Jobs />} />
-          <Route path="/introduction/schools" element={<Schools />} />
-          <Route path="/introduction/contact" element={<Contacts />} />
-          <Route path="/introduction/project" element={<Project />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/schools" element={<Schools />} />
+          <Route path="/contact" element={<Contacts />} />
+          <Route path="/project" element={<Project />} />
         </Routes>
       </Router>
     </ThemeProvider>

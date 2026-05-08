@@ -22,11 +22,11 @@ interface Page {
 }
 
 const pages: Page[] = [
-  { name: 'Rólam', path: '/introduction/about' },
-  { name: 'Munkahelyek', path: '/introduction/jobs' },
-  { name: 'Sulik', path: '/introduction/schools' },
-  { name: 'Kapcsolat', path: '/introduction/contact' },
-  { name: 'Projektről', path: '/introduction/project' },
+  { name: 'Rólam', path: '/about' },
+  { name: 'Munkahelyek', path: '/jobs' },
+  { name: 'Sulik', path: '/schools' },
+  { name: 'Kapcsolat', path: '/contact' },
+  { name: 'Projektről', path: '/project' },
 ];
 
 export default function ResponsiveAppBar() {
@@ -63,7 +63,7 @@ export default function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component={RouterLink}
-            to="/introduction/about"
+            to="/about"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
