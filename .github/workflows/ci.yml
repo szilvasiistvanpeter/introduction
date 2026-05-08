@@ -58,7 +58,7 @@ jobs:
 
       - name: Build Documentation
         # A site-dir-t a React dist mappájába irányítjuk
-        run: mkdocs build --site-dir dist/docs
+        run: mkdocs build -f mkdocs.yml --site-dir dist/docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
