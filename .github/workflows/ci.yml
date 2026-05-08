@@ -42,20 +42,22 @@ jobs:
         with:
           python-version: "3.x"
 
+      # A telepítés átkerült ide, a Python beállítása utánra!
+      - name: Install MkDocs
+        run: pip install mkdocs-material
+
       - name: Test (Typecheck)
         run: pnpm tsc
 
       - name: Build React App
         run: pnpm build
 
+      # Most már hiba nélkül le fog futni az építés
       - name: Build Documentation
         run: mkdocs build -f mkdocs.yml --site-dir dist/docs
 
       - name: Create 404 page for SPA
         run: cp dist/index.html dist/404.html
-
-      - name: Install MkDocs
-        run: pip install mkdocs-material
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
