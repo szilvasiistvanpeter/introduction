@@ -2,80 +2,81 @@
 
 Ebben a dokumentumban a portfólió oldal automatizált közzétételét elemezzük. A folyamat célja a manuális hibák kiküszöbölése és a magas kódminőség fenntartása.
 
-## 🛠️ A CI.yml részletes elemzése (Sorról sorra)
+## CI.yml részletes elemzése (Sorról sorra)
 
 Nézzük meg a konfigurációs fájlt, amely a GitHub Actions lelkét adja.
 
-1. Eseményindítók (Triggers)
+### Eseményindítók (Triggers)
 
-   `   `YAML
-   on:
-   push:
-   branches: [ main ]
+`   `YAML
+on:
+push:
+branches: [ main ]
 
-   ```
+```
 
-   Magyarázat: Ez a szakasz definiálja a "mikort". A pipeline akkor indul el, ha valaki közvetlenül a main ágba tölt fel kódot. Senior környezetben ez garantálja, hogy csak a véglegesített, jóváhagyott kód kerülhet ki élesbe.
+Magyarázat: Ez a szakasz definiálja a "mikort". A pipeline akkor indul el, ha valaki közvetlenül a main ágba tölt fel kódot. Senior környezetben ez garantálja, hogy csak a véglegesített, jóváhagyott kód kerülhet ki élesbe.
 
-   ```
+```
 
-2. Jogosultságok (Permissions)
+### Jogosultságok (Permissions)
 
-   ```YAML
-   permissions:
-   contents: read
-   pages: write
-   id-token: write
-   ```
+```YAML
+permissions:
+contents: read
+pages: write
+id-token: write
+```
 
-   Magyarázat: Biztonsági okokból szigorúan korlátozzuk az Action jogköreit. Csak olvasni tudja a kódot, de írási joga van a GitHub Pages tárhelyre és az azonosító tokenek kezelésére.
+Magyarázat: Biztonsági okokból szigorúan korlátozzuk az Action jogköreit. Csak olvasni tudja a kódot, de írási joga van a GitHub Pages tárhelyre és az azonosító tokenek kezelésére.
 
-3. A környezet beállítása (Jobs & Defaults)
+### A környezet beállítása (Jobs & Defaults)
 
-   ```YAML
-   jobs:
-   test-and-build:
-   runs-on: ubuntu-latest
-   defaults:
-   run:
-   working-directory: introduction
-   ```
+```YAML
+jobs:
+test-and-build:
+runs-on: ubuntu-latest
+defaults:
+run:
+working-directory: introduction
+```
 
-   Magyarázat: Meghatározzuk, hogy egy friss Ubuntu Linux operációs rendszeren fussanak a parancsok. Mivel a szoftverünk az introduction mappában lakik, minden parancs alapértelmezetten onnan fog indulni.
+Magyarázat: Meghatározzuk, hogy egy friss Ubuntu Linux operációs rendszeren fussanak a parancsok. Mivel a szoftverünk az introduction mappában lakik, minden parancs alapértelmezetten onnan fog indulni.
 
-4. A technológiai stack előkészítése
+### A technológiai stack előkészítése
 
-   ```YAML
-   steps: - uses: actions/checkout@v4 # Kód letöltése - uses: pnpm/action-setup@v3 # pnpm telepítése - uses: actions/setup-node@v4 # Node.js környezet (v20)
-   Magyarázat: Itt "behúzzuk" a szükséges szerszámokat. A pnpm használata azért fontos, mert hatékonyabban kezeli a függőségeket (dependencies), mint az npm, ami kritikus a gyors build folyamatoknál.
+```YAML
+steps: - uses: actions/checkout@v4 # Kód letöltése - uses: pnpm/action-setup@v3 # pnpm telepítése - uses: actions/setup-node@v4 # Node.js környezet (v20)
+Magyarázat: Itt "behúzzuk" a szükséges szerszámokat. A pnpm használata azért fontos, mert hatékonyabban kezeli a függőségeket (dependencies), mint az npm, ami kritikus a gyors build folyamatoknál.
 
-   ```
+```
 
-5. Minőségellenőrzés (A legfontosabb lépés!)
+### Minőségellenőrzés (A legfontosabb lépés!)
 
-   ```YAML
-   name: Test (Typecheck)
-   run: pnpm tsc
-   Magyarázat: Ez a Senior fejlesztői szemlélet kulcsa. Mielőtt bármit építenénk, a TypeScript fordítóval (tsc) ellenőrizzük a típusokat. Ha a hallgató elrontott egy interfészt, a folyamat itt azonnal megáll, és nem engedi a hibás kódot publikálni.
+```YAML
+name: Test (Typecheck)
+run: pnpm tsc
+Magyarázat: Ez a Senior fejlesztői szemlélet kulcsa. Mielőtt bármit építenénk, a TypeScript fordítóval (tsc) ellenőrizzük a típusokat. Ha a hallgató elrontott egy interfészt, a folyamat itt azonnal megáll, és nem engedi a hibás kódot publikálni.
 
-   ```
+```
 
-6. Az alkalmazás és a dokumentáció gyártása
+### Az alkalmazás és a dokumentáció gyártása
 
-   ```YAML
-   name: Build React App
-   run: pnpm build - name: Build Documentation
-   run: mkdocs build --site-dir dist/docs
-   Magyarázat: Először a React appot fordítjuk le statikus fájlokká a dist mappába. Ezután az MkDocs következik, amely a Markdown leírásokat HTML fájlokká alakítja, és beilleszti azokat a weboldal docs alkönyvtárába.
+```YAML
+name: Build React App
+run: pnpm build - name: Build Documentation
+run: mkdocs build --site-dir dist/docs
+Magyarázat: Először a React appot fordítjuk le statikus fájlokká a dist mappába. Ezután az MkDocs következik, amely a Markdown leírásokat HTML fájlokká alakítja, és beilleszti azokat a weboldal docs alkönyvtárába.
 
-   ```
+```
 
-7. A GitHub Pages specifikus trükk
-   ```YAML
-   name: Create 404 page for SPA
-   run: cp dist/index.html dist/404.html
-   Magyarázat: Mivel a GitHub Pages nem szerveroldali technológia, a /about jellegű útvonalakat nem ismerné fel. Ezzel a másolással becsapjuk a rendszert: bármilyen ismeretlen útvonalnál a React alkalmazás töltődik be, ami aztán kliensoldalon tudja, hová kell navigálni.
-   ```
+### A GitHub Pages specifikus trükk
+
+```YAML
+name: Create 404 page for SPA
+run: cp dist/index.html dist/404.html
+Magyarázat: Mivel a GitHub Pages nem szerveroldali technológia, a /about jellegű útvonalakat nem ismerné fel. Ezzel a másolással becsapjuk a rendszert: bármilyen ismeretlen útvonalnál a React alkalmazás töltődik be, ami aztán kliensoldalon tudja, hová kell navigálni.
+```
 
 ## 📖 Összegzés a hallgatóknak
 

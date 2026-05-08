@@ -110,7 +110,7 @@ export default function Project() {
                   <Button
                     variant="outlined"
                     startIcon={<DescriptionIcon />}
-                    href="#"
+                    href="https://szilvasiistvanpeter.github.io/docs/"
                     target="_blank"
                     sx={{ color: 'white', borderColor: '#1e4976' }}
                   >
