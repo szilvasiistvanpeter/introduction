@@ -37,6 +37,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Test (Typecheck)
         run: pnpm tsc
 
@@ -48,11 +53,6 @@ jobs:
 
       - name: Create 404 page for SPA
         run: cp dist/index.html dist/404.html
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
 
       - name: Install MkDocs
         run: pip install mkdocs-material
