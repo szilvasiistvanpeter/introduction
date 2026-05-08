@@ -55,7 +55,7 @@ jobs:
         run: pip install mkdocs-material
 
       - name: Build Documentation
-        run: mkdocs build -f introduction/mkdocs.yml --site-dir dist/docs
+        run: mkdocs build -f mkdocs.yml --site-dir dist/docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
