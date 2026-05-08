@@ -2,7 +2,7 @@ name: Test and Deploy to Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 permissions:
   contents: read
@@ -17,17 +17,21 @@ jobs:
         working-directory: introduction
 
     steps:
-      - uses: actions/checkout@v4
-      
-      - uses: pnpm/action-setup@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
         with:
           version: 8
-          
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
-          # Megmondjuk a node setupnak, hol keresse a lock fájlt a cache-eléshez:
+          cache: "pnpm"
           cache-dependency-path: introduction/pnpm-lock.yaml
 
       - name: Install dependencies
@@ -36,13 +40,29 @@ jobs:
       - name: Test (Typecheck)
         run: pnpm tsc
 
-      - name: Build
+      - name: Build React App
         run: pnpm build
+
+      # SPA Fix: A GitHub Pages-nek kell a 404.html, hogy a /about-on ne legyen hiba
+      - name: Create 404 page for SPA
+        run: cp dist/index.html dist/404.html
+
+      # MkDocs Build
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install MkDocs and Material theme
+        run: pip install mkdocs-material
+
+      - name: Build Documentation
+        # A site-dir-t a React dist mappájába irányítjuk
+        run: mkdocs build --site-dir dist/docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Itt a teljes utat meg kell adni a gyökértől nézve:
           path: introduction/dist
 
   deploy:
