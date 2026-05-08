@@ -12,7 +12,9 @@ permissions:
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
-    # TÖRLÉS: defaults: run: working-directory: introduction (Ezt kivettük!)
+    defaults:
+      run:
+        working-directory: introduction
 
     steps:
       - name: Checkout
@@ -30,8 +32,7 @@ jobs:
         with:
           node-version: 20
           cache: "pnpm"
-          # A gyökérben keressük a lock fájlt
-          cache-dependency-path: pnpm-lock.yaml
+          cache-dependency-path: introduction/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install
@@ -54,13 +55,12 @@ jobs:
         run: pip install mkdocs-material
 
       - name: Build Documentation
-        # Most már látni fogja az mkdocs.yml-t a gyökérben
         run: mkdocs build --site-dir dist/docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: introduction/dist
 
   deploy:
     needs: test-and-build
