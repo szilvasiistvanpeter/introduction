@@ -11,7 +11,6 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { contactLinks } from '../const';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import Eger from '../core/Eger';
 
 export default function Contacts() {
   const { t } = useTranslation();
