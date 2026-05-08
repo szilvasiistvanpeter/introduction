@@ -22,7 +22,7 @@ interface Page {
 }
 
 const pages: Page[] = [
-  { name: 'Rólam', path: '/about' },
+  { name: 'Rólam', path: '/' },
   { name: 'Munkahelyek', path: '/jobs' },
   { name: 'Sulik', path: '/schools' },
   { name: 'Kapcsolat', path: '/contact' },
@@ -63,7 +63,7 @@ export default function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component={RouterLink}
-            to="/about"
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -157,7 +157,7 @@ export default function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Avatar
               alt="Szilva"
-              src="/introduction/me.jpg"
+              src="/me.jpg"
               sx={{ border: '2px solid #1e4976' }}
             />
           </Box>

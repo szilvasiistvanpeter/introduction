@@ -41,7 +41,7 @@ export default function About() {
               }}
             >
               <Avatar
-                src="/introduction/me.jpg"
+                src="/me.jpg"
                 sx={{
                   width: 150,
                   height: 150,

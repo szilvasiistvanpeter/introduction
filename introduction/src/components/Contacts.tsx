@@ -70,9 +70,7 @@ export default function Contacts() {
           Egerben.
         </Typography>
 
-        {/* JAVÍTÁS: A justifyContent bekerült az sx-be, a container pedig Grid2-nél alapértelmezett vagy típusbiztos */}
         <Grid container spacing={4} sx={{ justifyContent: 'center' }}>
-          {/* Elérhetőségek kártya */}
           <Grid size={{ xs: 12, md: 7 }}>
             <Paper
               elevation={0}
@@ -112,7 +110,6 @@ export default function Contacts() {
             </Paper>
           </Grid>
 
-          {/* Helyszín kártya */}
           <Grid size={{ xs: 12, md: 5 }}>
             <Paper
               elevation={0}
