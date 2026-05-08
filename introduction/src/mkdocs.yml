@@ -1,0 +1,19 @@
+site_name: Szilva Portfolio Docs
+site_url: https://szilvasiistvanpeter.github.io/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: blue
+      accent: blue
+  features:
+    - navigation.tabs
+    - content.code.copy
+
+nav:
+  - Főoldal: index.md
+  - Technológiai Stack: tech.md
+  - CI/CD folyamat: deployment.md
+
+docs_dir: docs
