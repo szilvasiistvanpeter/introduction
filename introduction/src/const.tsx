@@ -20,7 +20,7 @@ export const contactLinks = [
   {
     label: 'GitHub',
     href: 'https://github.com/szilvasiistvanpeter',
-    value: 'github.com/plummogo',
+    value: 'github.com/szilvasiistvanpeter',
     icon: <GitHubIcon />,
   },
   {
