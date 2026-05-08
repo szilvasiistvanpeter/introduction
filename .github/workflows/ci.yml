@@ -24,6 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+        working-directory: introduction
 
       - name: Test (Typecheck)
         run: pnpm tsc
