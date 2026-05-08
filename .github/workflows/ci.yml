@@ -12,19 +12,26 @@ permissions:
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: introduction
+
     steps:
       - uses: actions/checkout@v4
+      
       - uses: pnpm/action-setup@v3
         with:
           version: 8
+          
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
+          # Megmondjuk a node setupnak, hol keresse a lock fájlt a cache-eléshez:
+          cache-dependency-path: introduction/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install
-        working-directory: introduction
 
       - name: Test (Typecheck)
         run: pnpm tsc
@@ -35,7 +42,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          # Itt a teljes utat meg kell adni a gyökértől nézve:
+          path: introduction/dist
 
   deploy:
     needs: test-and-build
