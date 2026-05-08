@@ -1,7 +1,7 @@
 # Introduction
 
 ## Creating the the basic application with
-```pnpm create react-app <name> --template typescript```
+```pnpm create vite@latest projekt-neve --template react-ts```
 
 ## About the Project
 This project is a CV site built using React and TypeScript. The goal is to create a modern, responsive, and interactive platform to showcase professional experience, skills, and achievements.
