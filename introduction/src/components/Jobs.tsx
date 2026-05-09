@@ -105,7 +105,7 @@ export default function Jobs() {
                     borderBottom: '1px solid rgba(30, 73, 118, 0.5)',
                   }}
                 >
-                  {t(job.period)}
+                  {job.period}
                 </TableCell>
                 <TableCell
                   sx={{

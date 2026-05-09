@@ -35,13 +35,13 @@ export const jobs = [
   {
     company: 'Eszterházy Károly Katolikus Egyetem',
     role: 'jobs.roles.lecturer',
-    period: 'jobs.periods.current_lecturer',
+    period: '2026.02 – jelenleg',
     tech: 'MongoDb, Neo4j, Python, Node.js, Azure, Terraform',
   },
   {
     company: 'Siemens',
     role: 'jobs.roles.senior_fullstack',
-    period: 'jobs.periods.current_siemens',
+    period: '2025.11 – jelenleg',
     tech: 'React.js, Next.js, Hybrid Cloud (AWS)',
   },
   {
